@@ -1,0 +1,305 @@
+.info{
+    text-align: left;
+}
+
+:root {
+    --dark-purple: #1A0D1C;
+    --light-blue: #707FE8;
+    --orange: #F14E13;
+    --teal: #3B9A8C;
+    --yellow: #FFC028;
+    --cream: #FDFEC2;
+    --dark-blue: #495076;
+}
+
+/* Ensure page background matches jaffx aesthetic */
+html, body {
+    background-color: var(--dark-purple) !important;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid white;
+}
+
+code.language-cpp{
+    color: white;
+}
+
+#readme{
+text-align: left;
+}
+
+.btn-es{
+    background-color: #ffb600;
+    color: white;
+}
+
+.app_body {
+    color: var(--light-blue);
+    background-color: var(--dark-purple);
+    /* Center the single-step walkthrough vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+
+.app_column {
+    align-items: center;
+    justify-content: center;
+    color: var(--light-blue);
+    background-color: transparent;
+    padding: 6px;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+}
+
+.nested_list {
+    justify-content: left;
+    align-items: left;
+    margin: 20px;
+    text-align: left;
+}
+
+.daisystyle {
+    color: #fff;
+    background-color: gray;
+    padding: 10px;
+    border: solid;
+    border-radius: 15px;
+    border-color: #ffb600;
+    margin: 5px;
+
+}
+
+/* Walkthrough / landing styles */
+.walkthrough {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 36px 24px;
+    margin: 36px auto;
+    color: #ffffff;
+    max-width: 760px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+
+/* Load Jaffx font (from local clone) */
+@font-face {
+    font-family: 'FFX Futurist Regular';
+    src: url('/jaffx.audio/olddddd/fonts/FFX Futurist Regular.ttf') format('truetype');
+}
+
+/* Packaged custom font for this site */
+@font-face {
+    font-family: 'JuTronCustom';
+    src: url('./fonts/JaffxFont.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+.jaffx-text {
+    font-family: 'FFX Futurist Regular', 'PT Mono', monospace;
+}
+
+.gradient-text-rainbow {
+    background: linear-gradient(90deg, var(--cream), var(--orange), var(--teal), var(--light-blue), var(--yellow));
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: gradientShift 4s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.walkthrough .title {
+    /* Very large heading like jaffx hero; cap max size so it won't wrap on wide viewports */
+    font-size: clamp(2.5rem, 6vw + 1rem, 4.5rem);
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ffb600; /* accent fallback */
+    /* Jaffx-like gradient text */
+    background: linear-gradient(90deg, #FDFEC2, #F14E13, #3B9A8C, #707FE8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+/* Ensure the hero title stays on a single line; truncate with ellipsis on small screens */
+.walkthrough .title,
+.walkthrough .title.hero-custom-font {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 100%;
+}
+
+.hero-custom-font {
+    font-family: 'JuTronCustom', 'FFX Futurist Regular', 'PT Mono', monospace;
+}
+
+.fade-step {
+    opacity: 0;
+    transform: translateY(30px);
+    /* Even slower, very smooth entrance for a calmer, deliberate feel */
+    animation: fadeInUpLarge 2400ms cubic-bezier(.16,.84,.24,1) forwards;
+    text-align: center;
+    font-size: clamp(1.1rem, 2.8vw, 2.4rem);
+    font-weight: 500;
+    color: #e6e6ff;
+}
+.fade-step.delay-1 { animation-delay: 300ms; }
+.fade-step.delay-2 { animation-delay: 1000ms; }
+.fade-step.delay-3 { animation-delay: 1700ms; }
+
+@keyframes fadeInUpLarge {
+    0% { opacity: 0; transform: translateY(30px); }
+    70% { opacity: 1; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.link-btn {
+    background: linear-gradient(90deg, #F14E13, #707FE8);
+    color: #fff;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 6px 18px rgba(255,182,0,0.12);
+    cursor: pointer;
+}
+
+.link-btn:active { transform: translateY(1px); }
+
+.final-message {
+    margin-top: 8px;
+    color: #e6ffed;
+    font-weight: 600;
+}
+
+/* Pre-link dialog styling */
+.prelink-dialog::backdrop { background: rgba(10, 8, 12, 0.6); }
+.prelink-dialog {
+    border: none;
+    border-radius: 12px;
+    padding: 0;
+}
+.prelink-content {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    padding: 36px;
+    color: var(--light-blue);
+    max-width: 640px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+.prelink-content h3 {
+    font-size: clamp(1.4rem, 3.2vw, 1.9rem);
+    margin: 0;
+}
+.prelink-content p {
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.4;
+    max-width: 560px;
+}
+.prelink-buttons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+/* Make buttons inside the dialog a bit larger for better touch targets */
+.prelink-content .link-btn {
+    font-size: 1rem;
+    padding: 12px 20px;
+}
+
+/* DFU progress widget */
+.dfu-progress-wrapper {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 8px 0;
+}
+.dfu-progress-label {
+    min-width: 88px;
+    color: #fff;
+    font-weight: 600;
+}
+.dfu-progress-bar {
+    width: 240px;
+    height: 12px;
+    appearance: none;
+    -webkit-appearance: none;
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative; /* for our pseudo fill */
+}
+.dfu-progress-bar::-webkit-progress-bar { background: rgba(255,255,255,0.06); border-radius: 8px; }
+/* hide vendor value fill so our pseudo-element takes visual control */
+.dfu-progress-bar::-webkit-progress-value { background: transparent; }
+.dfu-progress-bar::-moz-progress-bar { background: transparent; }
+
+/* Our robust left-anchored fill using a pseudo-element and CSS var --pct (percent string, e.g. '42%') */
+.dfu-progress-bar::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: var(--pct, 0%);
+    background: linear-gradient(90deg, #F14E13 0%, #707FE8 100%);
+    border-radius: 8px;
+    transition: width 180ms linear;
+}
+.dfu-progress-bar::-moz-progress-bar { background: linear-gradient(90deg, #F14E13 0%, #707FE8 100%); border-radius: 8px; }
+
+/* Indeterminate state: animated stripe moving left-to-right */
+.dfu-progress-bar.indeterminate::before {
+    /* full-width animated stripe overlay in indeterminate state */
+    width: 100%;
+    background-size: 200% 100%;
+    animation: progressStripe 1s linear infinite;
+}
+@keyframes progressStripe {
+    0% { background-position: -50% 0; }
+    100% { background-position: 150% 0; }
+}
+.dfu-progress-percent { color: #fff; min-width: 44px; text-align: right; }
+
+/* Hero flashing status */
+.flash-status {
+    padding: 28px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(255,255,255,0.02));
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+.flash-status .title { font-size: clamp(1.6rem, 4vw, 3rem); }
+.flash-status .dfu-progress-bar { width: 320px; height: 14px; }
+.flash-status .dfu-progress-percent { font-size: 1.15rem; font-weight: 700; }
+.flash-status .fade-step { opacity: 1; transform: translateY(0); }
+
+/* subtle pulsing while flashing */
+.flash-pulse { animation: pulse 1200ms ease-in-out infinite; }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.01); } 100% { transform: scale(1); } }
+
